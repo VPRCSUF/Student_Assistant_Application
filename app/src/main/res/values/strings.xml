@@ -6,4 +6,6 @@
     <string name="start_time">start_time</string>
     <string name="start_time_label">Start Time</string>
     <string name="end_time_label">End Time</string>
+    <string name="check_courses">My Courses</string>
+    <string name="string_check_courses">My Courses</string>
 </resources>
