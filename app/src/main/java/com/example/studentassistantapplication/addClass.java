@@ -2,6 +2,8 @@ package com.example.studentassistantapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +15,6 @@ public class addClass extends AppCompatActivity {
     ClassDatabaseHelper myDb;
     EditText addCourseName, addProfessor, addUnits, addStart, addEnd, addDays;
     Button subBut;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +34,12 @@ public class addClass extends AppCompatActivity {
 
     }
 
-
        public void AddData() {
         subBut.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         boolean isInserted = myDb.insertData(
                                 addCourseName.getText().toString(),
                                 addProfessor.getText().toString(),
@@ -46,6 +47,7 @@ public class addClass extends AppCompatActivity {
                                 addStart.getText().toString(),
                                 addEnd.getText().toString(),
                                 addDays.getText().toString());
+
 
                         if (isInserted == true) {
                             Toast.makeText(addClass.this, "Data Inserted", Toast.LENGTH_LONG).show();
