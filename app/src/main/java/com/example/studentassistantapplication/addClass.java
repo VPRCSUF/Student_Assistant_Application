@@ -50,9 +50,9 @@ public class addClass extends AppCompatActivity {
 
 
                         if (isInserted == true) {
-                            Toast.makeText(addClass.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                            Toast.makeText(addClass.this, "Data Inserted", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(addClass.this, "Data Not Inserted", Toast.LENGTH_LONG).show();
+                            Toast.makeText(addClass.this, "Data Not Inserted", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

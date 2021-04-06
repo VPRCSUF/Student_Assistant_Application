@@ -2,10 +2,14 @@ package com.example.studentassistantapplication;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.SimpleCursorAdapter;
 
 import androidx.annotation.Nullable;
+
+import java.time.DayOfWeek;
 
 public class ClassDatabaseHelper extends SQLiteOpenHelper {
 
@@ -17,13 +21,15 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_4_START_TIME = "START_TIME";
     public static final String COL_5_END_TIME = "END_TIME";
     public static final String COL_6_DAYS = "DAYS";
+    private static Context context;
 
 
 
 
-    public ClassDatabaseHelper(/*@Nullable*/ Context context) {
+    public ClassDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        //SQLiteDatabase db = this.getWritableDatabase();
+       // SQLiteDatabase db = this.getWritableDatabase();
+        this.context = context;
     }
 
     @Override
@@ -60,5 +66,57 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         {
             return true;
         }
+    }
+
+    //Have to test function below this comment
+
+    public boolean updateData(String course, String professor, String units, String start, String end, String days)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(COL_1_COURSE_NAME, course);
+        contentValues.put(COL_2_PROFESSOR, professor);
+        contentValues.put(COL_3_UNITS, units);
+        contentValues.put(COL_4_START_TIME, start);
+        contentValues.put(COL_5_END_TIME, end);
+        contentValues.put(COL_6_DAYS, days);
+        db.update("TABLE_NAME", contentValues, "COURSE = ?",new  String[] { course });
+        return true;
+    }
+
+    public Cursor getAllData()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
+        return res;
+    }
+
+    public Integer deleteData (String course)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "COURSE = ?",new String[] {course});
+    }
+
+    public SimpleCursorAdapter populateListViewFromDB()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String columns[] = {ClassDatabaseHelper.COL_1_COURSE_NAME, ClassDatabaseHelper.COL_2_PROFESSOR, ClassDatabaseHelper.COL_3_UNITS, ClassDatabaseHelper.COL_4_START_TIME, ClassDatabaseHelper.COL_5_END_TIME, ClassDatabaseHelper.COL_6_DAYS};
+
+        Cursor cursor = db.query(ClassDatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
+        String[] fromFieldCourse = new String[]{
+                ClassDatabaseHelper.COL_1_COURSE_NAME, ClassDatabaseHelper.COL_2_PROFESSOR, ClassDatabaseHelper.COL_3_UNITS, ClassDatabaseHelper.COL_4_START_TIME, ClassDatabaseHelper.COL_5_END_TIME, ClassDatabaseHelper.COL_6_DAYS
+        };
+        int [] toViewIDs = new int []{R.id.course, R.id.item_name, R.id.item_email};
+
+        SimpleCursorAdapter contactAdapter = new SimpleCursorAdapter(
+                context,
+                R.layout.single_item,
+                cursor,
+                fromFieldCourse,
+                toViewIDs
+        );
+        return contactAdapter;
     }
 }
