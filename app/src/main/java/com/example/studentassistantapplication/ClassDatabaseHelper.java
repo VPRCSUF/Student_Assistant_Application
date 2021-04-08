@@ -68,6 +68,16 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor viewData()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "Select * from " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+
+        return cursor;
+
+    }
+
     //Have to test function below this comment
 
     public boolean updateData(String course, String professor, String units, String start, String end, String days)
@@ -98,25 +108,6 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         return db.delete(TABLE_NAME, "COURSE = ?",new String[] {course});
     }
 
-    public SimpleCursorAdapter populateListViewFromDB()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
 
-        String columns[] = {ClassDatabaseHelper.COL_1_COURSE_NAME, ClassDatabaseHelper.COL_2_PROFESSOR, ClassDatabaseHelper.COL_3_UNITS, ClassDatabaseHelper.COL_4_START_TIME, ClassDatabaseHelper.COL_5_END_TIME, ClassDatabaseHelper.COL_6_DAYS};
 
-        Cursor cursor = db.query(ClassDatabaseHelper.TABLE_NAME, columns, null, null, null, null, null);
-        String[] fromFieldCourse = new String[]{
-                ClassDatabaseHelper.COL_1_COURSE_NAME, ClassDatabaseHelper.COL_2_PROFESSOR, ClassDatabaseHelper.COL_3_UNITS, ClassDatabaseHelper.COL_4_START_TIME, ClassDatabaseHelper.COL_5_END_TIME, ClassDatabaseHelper.COL_6_DAYS
-        };
-        int [] toViewIDs = new int []{R.id.course, R.id.item_name, R.id.item_email};
-
-        SimpleCursorAdapter contactAdapter = new SimpleCursorAdapter(
-                context,
-                R.layout.single_item,
-                cursor,
-                fromFieldCourse,
-                toViewIDs
-        );
-        return contactAdapter;
-    }
 }
