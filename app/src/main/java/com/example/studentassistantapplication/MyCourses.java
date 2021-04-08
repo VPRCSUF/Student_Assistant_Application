@@ -68,7 +68,7 @@ public class MyCourses extends AppCompatActivity {
         {
             while(cursor.moveToNext())
             {
-                listItem.add(cursor.getString(0)); // index 1 is name, index 0 is Id
+                listItem.add(cursor.getString(0)); // index 0 is course name
             }
 
             adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, listItem);
