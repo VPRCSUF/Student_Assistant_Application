@@ -2,8 +2,6 @@ package com.example.studentassistantapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,12 +20,12 @@ public class addClass extends AppCompatActivity {
         setContentView(R.layout.activity_add_class);
         myDb = new ClassDatabaseHelper(this);
 
-        addCourseName = (EditText) findViewById(R.id.add_class_name);
-        addProfessor = (EditText) findViewById(R.id.add_professor);
-        addUnits = (EditText) findViewById(R.id.add_unit);
-        addStart = (EditText) findViewById(R.id.add_start_time);
-        addEnd = (EditText) findViewById(R.id.add_end_time);
-        addDays = (EditText) findViewById(R.id.add_days);
+        addCourseName = (EditText) findViewById(R.id.class_name);
+        addProfessor = (EditText) findViewById(R.id.professor);
+        addUnits = (EditText) findViewById(R.id.unit);
+        addStart = (EditText) findViewById(R.id.start_time);
+        addEnd = (EditText) findViewById(R.id.end_time);
+        addDays = (EditText) findViewById(R.id.days);
         subBut = (Button) findViewById(R.id.submit);
 
         AddData();

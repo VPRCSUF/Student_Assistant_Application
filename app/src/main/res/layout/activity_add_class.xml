@@ -15,11 +15,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.791"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_end_time"
+        app:layout_constraintTop_toBottomOf="@+id/end_time"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/add_start_time"
+        android:id="@+id/start_time"
         android:layout_width="128dp"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -28,13 +28,13 @@
         android:ems="10"
         android:inputType="time"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/add_end_time"
+        app:layout_constraintEnd_toStartOf="@+id/end_time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.164" />
 
     <EditText
-        android:id="@+id/add_end_time"
+        android:id="@+id/end_time"
         android:layout_width="128dp"
         android:layout_height="40dp"
         android:layout_marginEnd="40dp"
@@ -72,11 +72,11 @@
         app:layout_constraintEnd_toStartOf="@+id/end_time_label"
         app:layout_constraintHorizontal_bias="0.341"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_start_time"
+        app:layout_constraintTop_toBottomOf="@+id/start_time"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/add_class_name"
+        android:id="@+id/class_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -90,17 +90,17 @@
         app:layout_constraintVertical_bias="0.063" />
 
     <EditText
-        android:id="@+id/add_professor"
+        android:id="@+id/professor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/add_unit"
+        app:layout_constraintEnd_toStartOf="@+id/unit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/start_time_label" />
 
     <EditText
-        android:id="@+id/add_unit"
+        android:id="@+id/unit"
         android:layout_width="58dp"
         android:layout_height="45dp"
         android:ems="10"
@@ -115,7 +115,7 @@
         android:layout_height="wrap_content"
         android:text="Professor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_professor" />
+        app:layout_constraintTop_toBottomOf="@+id/professor" />
 
     <TextView
         android:id="@+id/textView2"
@@ -123,10 +123,10 @@
         android:layout_height="wrap_content"
         android:text="Units"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_unit" />
+        app:layout_constraintTop_toBottomOf="@+id/unit" />
 
     <EditText
-        android:id="@+id/add_days"
+        android:id="@+id/days"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

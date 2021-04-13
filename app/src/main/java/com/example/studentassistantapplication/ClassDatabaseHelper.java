@@ -108,6 +108,14 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         return db.delete(TABLE_NAME, "COURSE = ?",new String[] {course});
     }
 
+    public Cursor getClassInfo(String course)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
+        return res;
+    }
+
+
 
 
 }

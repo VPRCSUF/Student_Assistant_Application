@@ -2,6 +2,7 @@ package com.example.studentassistantapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,7 +19,6 @@ public class MyCourses extends AppCompatActivity {
 
     ClassDatabaseHelper myDb;
 
-    //below is 2nd attempt
 
     ArrayList<String> listItem;
     ArrayAdapter adapter;
@@ -41,8 +40,8 @@ public class MyCourses extends AppCompatActivity {
         listItem = new ArrayList<>();
 
         addCourse = findViewById(R.id.add_course);
-        addProf = findViewById(R.id.add_professor);
-        addDays = findViewById(R.id.add_days);
+        addProf = findViewById(R.id.professor);
+        addDays = findViewById(R.id.days);
         userlist = findViewById(R.id.courseList);
 
         viewData();
@@ -57,7 +56,8 @@ public class MyCourses extends AppCompatActivity {
 
     }
 
-    private void viewData() {
+    private void viewData()
+    {
         Cursor cursor = myDb.viewData();
 
         if(cursor.getCount() == 0)
@@ -75,8 +75,17 @@ public class MyCourses extends AppCompatActivity {
             userlist.setAdapter(adapter);
 
         }
+    }
 
+    //---------------- below is to populate classInfo ... work in progress
 
+    public void classInfo(View v)
+    {
+
+    Intent i = new Intent(this, ClassInfo.class);
+    String course = ((Button)v).getText().toString();
+    i.putExtra("COURSE", course);
+    startActivity(i);
     }
 }
 
