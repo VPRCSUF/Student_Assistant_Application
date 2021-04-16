@@ -7,25 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".MyCourses">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Student Assistant Application"
+        app:titleTextColor="#FFFFFF" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/myCoursesTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#009688"
-            android:gravity="center_horizontal"
-            android:text="My Courses"
-            android:textColor="#FFFFFF"
-            android:textSize="35sp" />
 
         <ListView
             android:id="@+id/courseList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="56dp"
+            app:layout_constraintStart_toStartOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
             android:clickable="true" />
     </LinearLayout>
 

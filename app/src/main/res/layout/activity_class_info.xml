@@ -6,17 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".ClassInfo">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Student Assistant Application"
+        app:titleTextColor="#FFFFFF" />
+
     <TextView
         android:id="@+id/textViewClassTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#009688"
+        android:layout_marginTop="10dp"
         android:ellipsize="none"
         android:gravity="center_horizontal"
         android:text="Math150A"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/black"
         android:textSize="35sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
         android:id="@+id/professorText"
