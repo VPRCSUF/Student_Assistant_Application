@@ -6,134 +6,167 @@
     android:layout_height="match_parent"
     tools:context=".ClassInfo">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/textViewClassTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".addClass">
+        android:layout_height="wrap_content"
+        android:background="#009688"
+        android:ellipsize="none"
+        android:gravity="center_horizontal"
+        android:text="Math150A"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/end_time_label"
+    <TextView
+        android:id="@+id/professorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Professor:"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewClassTitle" />
+
+    <TextView
+        android:id="@+id/professorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="John Doe"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/professorText"
+        app:layout_constraintTop_toBottomOf="@+id/textViewClassTitle" />
+
+    <TextView
+        android:id="@+id/unitsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Units:"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/professorText" />
+
+    <TextView
+        android:id="@+id/units"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="4"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/unitsText"
+        app:layout_constraintTop_toBottomOf="@+id/professorName" />
+
+    <TextView
+        android:id="@+id/textViewStartTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Start Time:"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unitsText" />
+
+    <TextView
+        android:id="@+id/textViewStartTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="8:00am"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewStartTimeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/units" />
+
+    <TextView
+        android:id="@+id/textViewEndTimeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="End Time:"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStartTimeTitle" />
+
+    <TextView
+        android:id="@+id/textViewEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="9:50am"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewEndTimeTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStartTime" />
+
+    <TextView
+        android:id="@+id/textViewDaysTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Days:"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEndTimeTitle" />
+
+    <TextView
+        android:id="@+id/textViewDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="T/TH"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toEndOf="@+id/textViewDaysTitle"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEndTime" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDays"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <Button
+            android:id="@+id/buttonEditClass"
+            android:backgroundTint="#707070"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/end_time_label"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.791"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/end_time"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_marginRight="10dp"
+            android:text="Edit" />
 
-        <EditText
-            android:id="@+id/start_time"
-            android:layout_width="128dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:inputType="time"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/end_time"
-            app:layout_constraintHorizontal_bias="0.014"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.107" />
-
-        <EditText
-            android:id="@+id/end_time"
-            android:layout_width="128dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginRight="44dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:inputType="time"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.107" />
-
-        <TextView
-            android:id="@+id/start_time_label"
+        <Button
+            android:id="@+id/buttonDeleteClass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/start_time_label"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/end_time_label"
-            app:layout_constraintHorizontal_bias="0.341"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/start_time"
-            app:layout_constraintVertical_bias="0.0" />
+            android:layout_marginLeft="10dp"
+            android:text="Delete"
+            app:backgroundTint="#E32727" />
+    </LinearLayout>
 
-        <EditText
-            android:id="@+id/class_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Class name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/professor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toStartOf="@+id/unit"
-            app:layout_constraintHorizontal_bias="0.414"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/start_time_label" />
-
-        <EditText
-            android:id="@+id/unit"
-            android:layout_width="58dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginRight="44dp"
-            android:ems="10"
-            android:inputType="number"
-            android:text="0"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/end_time_label" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="116dp"
-            android:layout_marginLeft="116dp"
-            android:layout_marginTop="16dp"
-            android:text="Professor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/professor" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="52dp"
-            android:layout_marginRight="52dp"
-            android:text="Units"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/unit" />
-
-        <EditText
-            android:id="@+id/days"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="days"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
