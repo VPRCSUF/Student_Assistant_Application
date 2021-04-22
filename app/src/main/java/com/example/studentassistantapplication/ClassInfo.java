@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.widget.ArrayAdapter;
+=======
+import android.view.View;
+>>>>>>> e5f0673fd5f54a8a2915cd426ee97c81a100404f
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -94,5 +98,11 @@ public class ClassInfo extends AppCompatActivity {
         start.setText(info[2]);
         end.setText(info[3]);
         days.setText(info[4]); */
+    }
+
+    public void goToEditClass(View v)
+    {
+        Intent i = new Intent(this, EditCourse.class);
+        startActivity(i);
     }
 }
