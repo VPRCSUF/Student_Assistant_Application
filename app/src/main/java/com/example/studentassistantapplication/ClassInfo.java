@@ -5,11 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import android.widget.ArrayAdapter;
-=======
+//=======
 import android.view.View;
->>>>>>> e5f0673fd5f54a8a2915cd426ee97c81a100404f
+//>>>>>>> e5f0673fd5f54a8a2915cd426ee97c81a100404f
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +63,7 @@ public class ClassInfo extends AppCompatActivity {
         Cursor cursor = myDb.viewData();
        // ArrayList<String> info = new ArrayList<String>();
        // String[] info = {"1","2","3","4","5"};
+        String comp;
 
         if(cursor.getCount() == 0)
         {
@@ -72,7 +73,8 @@ public class ClassInfo extends AppCompatActivity {
         {
             while(cursor.moveToNext())
             {
-                if(cursor.getString(0) == course)
+                comp = cursor.getString(0);
+                if(comp.equals(course))
                 {
                     //String[] info = {cursor.getString(1), cursor.getString(2), cursor.getString(3),  cursor.getString(4), cursor.getString(5) };
                 /*    info[0] = cursor.getString(1);
