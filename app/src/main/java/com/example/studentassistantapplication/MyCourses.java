@@ -37,23 +37,29 @@ public class MyCourses extends AppCompatActivity {
 
         myDb = new ClassDatabaseHelper(this);
 
+
         listItem = new ArrayList<>();
 
         addCourse = findViewById(R.id.add_course);
         addProf = findViewById(R.id.professor);
         addDays = findViewById(R.id.days);
-        userlist = findViewById(R.id.courseList);
+        userlist = (ListView)findViewById(R.id.courseList);
 
         viewData();
 
         userlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                String text = userlist.getItemAtPosition(i).toString();
-                Toast.makeText(MyCourses.this, ""+text, Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String Templistview = userlist.getItemAtPosition(position).toString();
+
+                Intent intent = new Intent(MyCourses.this, ClassInfo.class);
+
+                intent.putExtra("courseName", Templistview);
+                startActivity(intent);
+
             }
         });
-
     }
 
     private void viewData()
@@ -75,17 +81,6 @@ public class MyCourses extends AppCompatActivity {
             userlist.setAdapter(adapter);
 
         }
-    }
-
-    //---------------- below is to populate classInfo ... work in progress
-
-    public void classInfo(View v)
-    {
-
-    Intent i = new Intent(this, ClassInfo.class);
-    String course = ((Button)v).getText().toString();
-    i.putExtra("COURSE", course);
-    startActivity(i);
     }
 }
 
