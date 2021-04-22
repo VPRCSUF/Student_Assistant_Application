@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class ClassInfo extends AppCompatActivity {
@@ -32,5 +33,11 @@ public class ClassInfo extends AppCompatActivity {
 
 
 
+    }
+
+    public void goToEditClass(View v)
+    {
+        Intent i = new Intent(this, EditCourse.class);
+        startActivity(i);
     }
 }
