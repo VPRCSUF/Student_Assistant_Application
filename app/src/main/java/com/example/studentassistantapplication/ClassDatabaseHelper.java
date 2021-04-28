@@ -79,6 +79,13 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public Integer deleteData (String course)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        //return db.delete(TABLE_NAME, "COURSE =?",new String[] {course});
+        return db.delete(TABLE_NAME, "COURSE = ?",new String[] {course});
+    }
+
     //Have to test function below this comment
 
     public boolean updateData(String course, String professor, String units, String start, String end, String days)
@@ -103,38 +110,7 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public Integer deleteData (String course)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME, "COURSE = ?",new String[] {course});
-    }
 
-  /*  public ArrayList<String> getClassInfo(String course)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String[]info = {"COURSE", "PROFESSOR" , "UNITS" , "START_TIME", "END_TIME", "DAYS"};
-
-       // Cursor res = db.rawQuery("select * from " + TABLE_NAME + " WHERE ROWID = " + course, null);
-
-        Cursor res = db.query(TABLE_NAME, info, COL_1_COURSE_NAME+" = '"+course+"'",null,null,null,null);
-
-        ArrayList<String> buffer = new ArrayList<String>();
-
-        while(res.moveToNext())
-        {
-            String getProf = res.getString(1);
-            String getUnit = res.getString(2);
-            String getStart = res.getString(3);
-            String getEnd = res.getString(4);
-            String getDays = res.getString(5);
-            buffer.add(getProf);
-            buffer.add(getUnit);
-            buffer.add(getStart);
-            buffer.add(getEnd);
-            buffer.add(getDays);
-        }
-        return buffer;
-    } */
 
     public Cursor getClassInfo()
     {
@@ -145,7 +121,4 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
 
     }
-
-
-
 }

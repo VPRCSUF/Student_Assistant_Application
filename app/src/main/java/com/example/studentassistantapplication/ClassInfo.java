@@ -41,18 +41,7 @@ public class ClassInfo extends AppCompatActivity {
 
         className.setText(Tempholder);
 
-           displayCourse(Tempholder);
-
-        //info = myDb.getClassInfo(className.toString());
-
-        //Toast.makeText(this, info.size(), Toast.LENGTH_LONG).show();
-
-
-       // prof.setText(info.get(0));
-       // unit.setText(info.get(1));
-        //start.setText(info.get(2));
-        //end.setText(info.get(3));
-        //days.setText(info.get(4));
+        displayCourse(Tempholder);
 
     }
 
@@ -61,8 +50,6 @@ public class ClassInfo extends AppCompatActivity {
     public void displayCourse(String course)
     {
         Cursor cursor = myDb.viewData();
-       // ArrayList<String> info = new ArrayList<String>();
-       // String[] info = {"1","2","3","4","5"};
         String comp;
 
         if(cursor.getCount() == 0)
@@ -76,35 +63,30 @@ public class ClassInfo extends AppCompatActivity {
                 comp = cursor.getString(0);
                 if(comp.equals(course))
                 {
-                    //String[] info = {cursor.getString(1), cursor.getString(2), cursor.getString(3),  cursor.getString(4), cursor.getString(5) };
-                /*    info[0] = cursor.getString(1);
-                    info[1] = cursor.getString(2);
-                    info[2] = cursor.getString(3);
-                    info[3] = cursor.getString(4);
-                    info[4] = cursor.getString(5);*/
-                   // Toast.makeText(this, info.size(), Toast.LENGTH_LONG).show();
-
-
-                           prof.setText(cursor.getString(1));
-                         unit.setText(cursor.getString(2));
-                     start.setText(cursor.getString(3));
-                     end.setText(cursor.getString(4));
-                      days.setText(cursor.getString(5));
+                    prof.setText(cursor.getString(1));
+                    unit.setText(cursor.getString(2));
+                    start.setText(cursor.getString(3));
+                    end.setText(cursor.getString(4));
+                    days.setText(cursor.getString(5));
 
                 }
             }
         }
-      // Toast.makeText(this, info.size(), Toast.LENGTH_LONG).show();
-  /*      prof.setText(info[0]);
-        unit.setText(info[1]);
-        start.setText(info[2]);
-        end.setText(info[3]);
-        days.setText(info[4]); */
     }
 
     public void goToEditClass(View v)
     {
         Intent i = new Intent(this, EditCourse.class);
+        startActivity(i);
+    }
+
+    public void deleteClass(View v)
+    {
+        int tracker;
+
+        tracker = myDb.deleteData(className.getText().toString());
+
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
 }
