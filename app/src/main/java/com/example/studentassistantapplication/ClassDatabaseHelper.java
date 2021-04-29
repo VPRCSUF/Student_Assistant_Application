@@ -93,13 +93,12 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(COL_1_COURSE_NAME, course);
         contentValues.put(COL_2_PROFESSOR, professor);
         contentValues.put(COL_3_UNITS, units);
         contentValues.put(COL_4_START_TIME, start);
         contentValues.put(COL_5_END_TIME, end);
         contentValues.put(COL_6_DAYS, days);
-        db.update("TABLE_NAME", contentValues, "COURSE = ?",new  String[] { course });
+        db.update(TABLE_NAME, contentValues, "COURSE = ?",new  String[] { course });
         return true;
     }
 

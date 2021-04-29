@@ -113,6 +113,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="10dp"
+                android:onClick="updateInfo"
                 android:text="Confirm"
                 app:backgroundTint="#707070" />
 
@@ -121,8 +122,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
+                android:onClick="goToClassInfo"
                 android:text="Cancel"
-                app:backgroundTint="#E32727"/>
+                app:backgroundTint="#E32727" />
         </LinearLayout>
 
     </LinearLayout>

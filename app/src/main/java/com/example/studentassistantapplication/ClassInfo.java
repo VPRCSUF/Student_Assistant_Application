@@ -19,14 +19,12 @@ public class ClassInfo extends AppCompatActivity {
 
     ClassDatabaseHelper myDb;
     TextView className, start, end, prof, unit, days;
-   // ArrayList<String> info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_info);
         myDb = new ClassDatabaseHelper(this);
-       // ArrayList<String> info = new ArrayList<String>();
 
         className = (TextView)findViewById(R.id.textViewClassTitle);
         prof = findViewById(R.id.professorName);
@@ -77,6 +75,9 @@ public class ClassInfo extends AppCompatActivity {
     public void goToEditClass(View v)
     {
         Intent i = new Intent(this, EditCourse.class);
+
+        i.putExtra("courseName", className.getText().toString());
+
         startActivity(i);
     }
 
