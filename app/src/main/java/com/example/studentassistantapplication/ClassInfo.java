@@ -40,10 +40,8 @@ public class ClassInfo extends AppCompatActivity {
         className.setText(Tempholder);
 
         displayCourse(Tempholder);
-
     }
 
-    //---------------------------------------------WORK IN PROGRESS BELOW THIS LINE--------------------------------------
 
     public void displayCourse(String course)
     {

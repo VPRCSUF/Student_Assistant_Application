@@ -37,8 +37,6 @@ public class EditCourse extends AppCompatActivity {
         className.setText(Tempholder);
 
         displayCourse(Tempholder);
-
-
     }
 
 

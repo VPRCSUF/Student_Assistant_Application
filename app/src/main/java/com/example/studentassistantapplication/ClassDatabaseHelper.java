@@ -29,7 +29,6 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
 
     public ClassDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-       // SQLiteDatabase db = this.getWritableDatabase();
         this.context = context;
     }
 
@@ -82,11 +81,9 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
     public Integer deleteData (String course)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        //return db.delete(TABLE_NAME, "COURSE =?",new String[] {course});
         return db.delete(TABLE_NAME, "COURSE = ?",new String[] {course});
     }
 
-    //Have to test function below this comment
 
     public boolean updateData(String course, String professor, String units, String start, String end, String days)
     {
@@ -107,17 +104,5 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
         return res;
-    }
-
-
-
-    public Cursor getClassInfo()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "Select * from " + TABLE_NAME;
-        Cursor cursor = db.rawQuery(query, null);
-
-        return cursor;
-
     }
 }

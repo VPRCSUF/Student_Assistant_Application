@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //deleteDatabase("CourseInfo.db"); //This line is used to erase database if new columns are added. Leave it commented out.
     }
 
     public void goToAddClass(View v)
