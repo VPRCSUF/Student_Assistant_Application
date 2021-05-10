@@ -47,6 +47,9 @@ public class MyCourses extends AppCompatActivity {
 
         viewData();
 
+
+        // Makes the listview that displayed the courses names clickable, then sends the user to
+        // a new activity that displayed all the info of the item that has been clicked.
         userlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -62,6 +65,8 @@ public class MyCourses extends AppCompatActivity {
         });
     }
 
+
+    // Pulls all the class names that are in the database to be listed
     private void viewData()
     {
         Cursor cursor = myDb.viewData();

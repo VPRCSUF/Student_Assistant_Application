@@ -43,6 +43,7 @@ public class ClassInfo extends AppCompatActivity {
     }
 
 
+    // Displayed all  the information of the selected course
     public void displayCourse(String course)
     {
         Cursor cursor = myDb.viewData();
@@ -70,6 +71,7 @@ public class ClassInfo extends AppCompatActivity {
         }
     }
 
+    // Moves use to an activity that allows them to edit a single entry of the database
     public void goToEditClass(View v)
     {
         Intent i = new Intent(this, EditCourse.class);
@@ -79,6 +81,7 @@ public class ClassInfo extends AppCompatActivity {
         startActivity(i);
     }
 
+    // Allows the user to delete the course from the database
     public void deleteClass(View v)
     {
         int tracker;

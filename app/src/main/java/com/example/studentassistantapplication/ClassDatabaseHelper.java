@@ -46,6 +46,9 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+
+    // Takes inputed data and inserts it into the database.
+
     public boolean insertData(String course, String professor, String units, String start, String end, String days)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -68,6 +71,8 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    // Pulls all the data from the database
+
     public Cursor viewData()
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -78,12 +83,16 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    // Deletes a single entry from the database
+
     public Integer deleteData (String course)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, "COURSE = ?",new String[] {course});
     }
 
+
+    // Updates a single entry from the database
 
     public boolean updateData(String course, String professor, String units, String start, String end, String days)
     {
@@ -97,12 +106,5 @@ public class ClassDatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_6_DAYS, days);
         db.update(TABLE_NAME, contentValues, "COURSE = ?",new  String[] { course });
         return true;
-    }
-
-    public Cursor getAllData()
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("select * from " + TABLE_NAME, null);
-        return res;
     }
 }

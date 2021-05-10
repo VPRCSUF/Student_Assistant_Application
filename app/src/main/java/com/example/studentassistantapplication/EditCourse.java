@@ -30,7 +30,7 @@ public class EditCourse extends AppCompatActivity {
         end = findViewById(R.id.end_time);
         days = findViewById(R.id.days);
 
-        Bundle recdData = getIntent().getExtras();
+        Bundle recdData = getIntent().getExtras(); // Gets the primary key of the course to be edited
 
         String Tempholder = recdData.getString("courseName");
 
@@ -40,6 +40,7 @@ public class EditCourse extends AppCompatActivity {
     }
 
 
+    // Displays all of the information of the selected course to the screen
     public void displayCourse(String course)
     {
         Cursor cursor = myDb.viewData();
@@ -67,6 +68,7 @@ public class EditCourse extends AppCompatActivity {
         }
     }
 
+    // Moves to the ClassInfo activity
     public void goToClassInfo(View v)
     {
         Intent i = new Intent(this, ClassInfo.class);
@@ -76,6 +78,8 @@ public class EditCourse extends AppCompatActivity {
         startActivity(i);
     }
 
+
+    // Saves any changes that are made to the class to the database
     public void updateInfo(View v)
     {
         boolean updated;

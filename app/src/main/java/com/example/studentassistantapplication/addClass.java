@@ -32,6 +32,7 @@ public class addClass extends AppCompatActivity {
 
     }
 
+    // Inserts the information that has been entered by the user into the database
        public void AddData() {
         subBut.setOnClickListener(
                 new View.OnClickListener() {
