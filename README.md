@@ -18,6 +18,28 @@ To obtain a copy of the project:
 Open the project on Android Studio. An Android device or emulator will be needed in order to run the application. Instructions for running the application on the Android Studio emulator or a hardware device can be found here: https://developer.android.com/studio/run
 
 ## How to Use
+From the homepage, use the Add Course button to add a course. </br>
+<img src="/Images/home_page.png" width="200" height="400" />
+
+Enter the requested information about the course. </br>
+<img src="/Images/add_class.png" width="200" height="400" />
+
+Return to the homepage and use the My Courses button to look at the list of courses. In this demonstration, there is only one class in the list; however, a user can add as many class as they want. </br>
+<img src="/Images/course_list.png" width="200" height="400" />
+
+From the course list, select the course to view. The application will then display the information that the user provided about the course. </br>
+<img src="/Images/view_course_1.png" width="200" height="400" />
+
+To edit the course information, press the Edit button. The application will then allow the user to make any changes to the course information. </br>
+<img src="/Images/edit_course.png" width="200" height="400" />
+
+The new course information has been saved! </br>
+<img src="/Images/view_course_2.png" width="200" height="400" />
+
+To delete the course, press the Delete button. The application will then delete the course information from the database and remove the course from the course list.</br>
+<img src="/Images/empty_list.png" width="200" height="400" />
+
+That is the current working version of the Student Assistant App! We hope you enjoyed the app!
 
 ## Built with
 * Android Studio [https://developer.android.com/studio/intro]
